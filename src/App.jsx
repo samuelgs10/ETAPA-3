@@ -1,29 +1,28 @@
-import './App.css';
+import "./styles/theme.css";
+import "./styles/global.css";
+import { Header } from "./components/Header";
+import { ProductList } from "./components/ProductList";
+import { Cart } from "./components/Cart";
+import { Route, Routes } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
+import { ToastContainer } from "react-toastify";
+import { Login } from "./components/Login";
 
-function App() {
+import { BrowserRouter } from "react-router-dom";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ToastContainer />
+      <CartProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ProductList />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/signin" element={<Login value="signin" />} />
+          <Route path="/register" element={<Login value="register" />} />
+        </Routes>
+      </CartProvider>
+    </BrowserRouter>
   );
 }
-
-export default App;
