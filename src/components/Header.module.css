@@ -1,90 +1,73 @@
-.container {
+.header1 {
+  grid-area: header1;
+  background-color: rgba(15, 21, 33, 255);
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 3rem;
-  height: 15rem;
-  padding: 5rem;
-  background-color: var(--primary-light);
-
+  align-items: center;
+  flex-direction: row;
+  padding: 1rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-}
+  @media (max-width: 768px) {
+    flex-direction: column;
+  };
 
-.actions {
+  
+}
+.title {
   display: flex;
-  align-items: center;
-  justify-items: center;
-  gap: 2rem;
-}
-
-.container h1 {
-  font-size: 5rem;
   font-weight: bolder;
-  color: var(--primary-dark);
-}
-
-.containerImg img {
-  height: auto;
-  width: 100%;
-  max-width: 20rem;
-}
-
-.container p {
-  font-size: 1.5rem;
-}
-
-.cartInfo {
-  border-radius: 3rem;
-  background-color: var(--background);
-  color: var(--text);
-  padding: 2rem;
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 5rem;
+  color: rgb(37, 100, 234);
   text-align: center;
+  margin-left: 40px;
+  @media (max-width: 768px) {
+    font-size: 5rem;
+  }
 }
-
-.link {
-  font-size: 2rem;
-  text-decoration: none;
-  color: var(--primary);
-  color: var(--text);
-  transition: color 0.3s;
-}
-
-.link:hover {
-  color: var(--primary-dark);
-}
-
-.cartIcon {
-  position: relative;
-  display: inline-block;
-}
-
-.cartCount {
-  position: absolute;
-  top: -0.8rem;
-  right: -2rem;
-  font-size: 1.5rem;
+.header1 svg {
+  width: 6rem;
+  height: 6rem;
+  font-size: 6rem;
+  object-fit: cover;
   border-radius: 1rem;
-  background-color: var(--primary-dark);
-  color: var(--gray-100);
-  padding: 0.2rem 0.6rem;
-  font-weight: bold;
-  z-index: 1;
+  color: rgba(36, 99, 235, 255);
+  @media (max-width: 768px) {
+    width: 12rem;
+    height: 12rem;
+    font-size: 12rem;
+    display: flex;
+  }
+}
+.cart {
+  flex-direction: row;  
+  display: flex;
+  font-weight: bolder;
+  font-size: 3rem;
+  color: rgb(37, 100, 234);
+  padding: 1rem;
 }
 
-.welcomeMessage {
-  font-size: 1.5rem;
-  color: var(--text);
+.cart button, .cart a, .cart svg {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgb(37, 100, 234);
+  font-size: 3rem;
   margin-right: 1rem;
-  text-decoration: none;
 }
 
-.welcomeMessage:hover {
-  /* color: var(--primary-dark); */
-  text-decoration: underline;
+.cart p {
+  display: inline-block;
+  background-color: rgb(17, 31, 80);
+  border: 1px solid rgb(37, 100, 234);
+  margin: 0.5rem;
+  padding: 5px;
+  border-radius: 1rem;
+  color: rgb(37, 100, 234);
+  font-size: 1.5rem;
+  height: 35px;
 }
