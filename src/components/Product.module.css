@@ -1,46 +1,47 @@
 .productCard {
-  border: 0.5rem solid var(--color-secondary);
-  border-radius: 1rem;
-  padding: 3rem;
+  border: 1px solid rgb(32, 59, 156);
+  border-radius: 8px;
+  padding: 16px;
   text-align: center;
-  background-color: var(--gray-100);
+  background-color: rgb(17, 31, 80);
+  width: 40rem;
 }
 
 .productImage {
-  width: 100%;
-  border-radius: 1rem;
+  width: 80%;
+  border-radius: 4px;
 }
 
 .productTitle {
   font-size: 3rem;
   font-weight: bold;
-  margin: 1rem 0;
+  margin: 8px 0;
 }
 
 .productDescription {
-  font-size: 1.6rem;
-  color: var(--color-text);
+  font-size: 1rem;
+  color: rgb(37, 100, 234);
 }
 
 .productPrice {
   font-size: 2rem;
-  color: var(--primary-dark);
+  color: rgb(37, 100, 234);
   font-weight: bold;
-  margin: 1rem 0;
+  margin: 8px 0;
 }
 
 .productButton {
-  background-color: var(--primary);
-  color: var(--primary-contrast-light);
+  background-color: rgb(23, 54, 121);
+  color: rgb(37, 100, 234);
   border: none;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
+  padding: 8px 16px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .productButton:hover {
-  background-color: var(--primary-dark);
+  background-color: rgb(17, 59, 151);
 }
 
 .productQty {
@@ -49,4 +50,19 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  border: none;
+}
+.productQty button {
+    
+  background-color: rgb(23, 54, 121);
+  color: rgb(37, 100, 234);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.productQty button:hover {
+  background-color: rgb(17, 59, 151);
 }
