@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { SessionContext } from "../context/SessionContext";
 import { CartContext } from "../context/CartContext";
 import styles from "./User.module.css";
-import { supabase } from "../utils/supabase";
 
 export function User() {
   const { session, handleSignOut } = useContext(SessionContext);
@@ -22,47 +21,19 @@ export function User() {
       return salvarEdicao(e);
     }
 
-    let nextId;
-    try {
-      const { data: last, error: lastErr } = await supabase
-        .from("product_2v")
-        .select("id")
-        .order("id", { ascending: false })
-        .limit(1)
-        .maybeSingle();
-
-      if (lastErr) {
-        console.error("Erro ao obter último id:", lastErr);
-        nextId = Date.now();
-      } else {
-        nextId = (last?.id ?? 0) + 1;
-      }
-    } catch (err) {
-      console.error("Exceção ao buscar último id:", err);
-      nextId = Date.now();
-    }
-
     const newProduct = {
-      id: nextId,
       title,
       description,
       price: Number(price),
       thumbnail: thumbnail || "https://via.placeholder.com/150",
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
     };
 
     try {
-      const { data, error } = await supabase.from("product_2v").insert([newProduct]).select().maybeSingle();
-      if (error) {
-        console.error("Supabase insert error:", error);
-        addProduct(newProduct);
-      } else {
-        addProduct(data ?? newProduct);
-      }
+      await addProduct(newProduct);
     } catch (err) {
       console.error("handleAdd exception:", err);
-      addProduct(newProduct);
+      // fallback to local state update if addProduct fails
+      addProduct({ ...newProduct, id: Date.now() });
     }
 
     setTitle("");

@@ -21,7 +21,7 @@ export function Cart() {
                   <img src={product.thumbnail} alt={product.title} />
                   <h3>{product.title}</h3>
                   <button
-                    onClick={() => removeFromCart(product)}
+                    onClick={() => removeFromCart(product.id)}
                     disabled={product.qty === 1}
                   >
                     -
@@ -30,9 +30,7 @@ export function Cart() {
                   <button onClick={() => addToCart(product)}>+</button>
                   <p>${(product.price * product.qty).toFixed(2)}</p>
                   <button
-                    onClick={() => {
-                      clearCart(product);
-                    }}
+                    onClick={() => clearCart(product.id)}
                   >
                     Remove
                   </button>
